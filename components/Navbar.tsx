@@ -8,9 +8,7 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
-  { name: "Live Demos", href: "#demos" },
   { name: "Skills", href: "#skills" },
-  { name: "Initiative", href: "#initiative" },
   { name: "Achievements", href: "#achievements" },
   { name: "Contact", href: "#contact" },
 ];
@@ -18,13 +16,30 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      const sections = navLinks.map((link) =>
+        document.querySelector(link.href)
+      );
+
+      sections.forEach((section, i) => {
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActive(navLinks[i].href);
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,7 +47,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-black/40 border-b border-white/10"
+          ? "backdrop-blur-2xl bg-black/40 border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
       }`}
     >
@@ -41,31 +56,38 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent hover:opacity-90 transition"
+          className="text-2xl font-bold tracking-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
         >
           Aditya.dev
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
 
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="relative text-gray-300 hover:text-white transition group"
+              className={`relative transition ${
+                active === link.href
+                  ? "text-white"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
               {link.name}
 
-              {/* hover underline */}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+              <span
+                className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300 ${
+                  active === link.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </a>
           ))}
 
           {/* Resume Button */}
           <a
             href="/Aditya_Sharma_Resume.pdf"
-            className="ml-2 px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 text-white font-medium shadow-lg hover:scale-105 transition"
+            className="ml-4 px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 text-white font-medium shadow-lg hover:scale-105 transition"
           >
             Resume
           </a>
@@ -81,8 +103,12 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4 backdrop-blur-xl bg-black/70 border-t border-white/10">
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
+          open ? "max-h-[400px]" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 pb-6 pt-4 flex flex-col gap-4 backdrop-blur-2xl bg-black/70 border-t border-white/10">
 
           {navLinks.map((link) => (
             <a
@@ -97,12 +123,12 @@ export default function Navbar() {
 
           <a
             href="/Aditya_Sharma_Resume.pdf"
-            className="mt-2 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 text-white text-center"
+            className="mt-3 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 text-white text-center"
           >
             Resume
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

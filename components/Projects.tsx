@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
+import { Github, ExternalLink, Code } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -60,92 +62,128 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-28 px-6 max-w-7xl mx-auto"
+      className="relative py-28 px-6 overflow-hidden"
     >
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-bold text-center mb-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
-      >
-        Projects
-      </motion.h2>
 
-      {/* Main Projects */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
-        {projects.map((project, i) => (
-          <Tilt
-            key={i}
-            glareEnable
-            glareMaxOpacity={0.25}
-            scale={1.04}
-            tiltMaxAngleX={12}
-            tiltMaxAngleY={12}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 h-full hover:shadow-[0_0_30px_rgba(99,102,241,0.25)] transition"
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {project.title}
-              </h3>
-
-              <p className="text-gray-400 text-sm mb-6">
-                {project.desc}
-              </p>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="text-xs px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  className="text-sm px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 text-white hover:scale-105 transition"
-                >
-                  Live Demo
-                </a>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="text-sm px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10 transition"
-                >
-                  GitHub
-                </a>
-              </div>
-            </motion.div>
-          </Tilt>
-        ))}
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/bg2.jpg"
+          alt="background"
+          fill
+          priority
+          className="object-cover opacity-80"
+        />
       </div>
 
-      {/* Other Projects */}
-      <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
-        <h3 className="text-xl font-semibold mb-6 text-indigo-400">
-          Other Notable Projects
-        </h3>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#020617]/90 via-[#020617]/70 to-[#020617]/90"></div>
 
-        <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-sm">
-          {otherProjects.map((p, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-cyan-400">•</span>
-              {p}
-            </li>
+      {/* Glow Effects */}
+      <div className="absolute -z-10 w-full h-full pointer-events-none">
+        <div className="absolute top-[-120px] left-[-120px] w-[400px] h-[400px] bg-purple-500/20 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+
+        {/* Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+        >
+          Projects
+        </motion.h2>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+          {projects.map((project, i) => (
+            <Tilt
+              key={i}
+              glareEnable
+              glareMaxOpacity={0.2}
+              scale={1.05}
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-7 h-full hover:shadow-[0_0_40px_rgba(99,102,241,0.25)] transition-all"
+              >
+
+                {/* Icon */}
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400 mb-4">
+                  <Code size={22}/>
+                </div>
+
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {project.title}
+                </h3>
+
+                <p className="text-gray-400 text-sm mb-6">
+                  {project.desc}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="text-xs px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-4">
+
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-400 text-white hover:scale-105 transition"
+                  >
+                    <ExternalLink size={16}/>
+                    Live
+                  </a>
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10 transition"
+                  >
+                    <Github size={16}/>
+                    Code
+                  </a>
+
+                </div>
+
+              </motion.div>
+            </Tilt>
           ))}
-        </ul>
+        </div>
+
+        {/* Other Projects */}
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
+          <h3 className="text-xl font-semibold mb-6 text-indigo-400">
+            Other Notable Projects
+          </h3>
+
+          <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-sm">
+            {otherProjects.map((p, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-cyan-400">•</span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
     </section>
   );

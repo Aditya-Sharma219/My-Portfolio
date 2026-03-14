@@ -1,23 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { Trophy, Rocket, Brain, BookOpen } from "lucide-react";
 
 const achievements = [
   {
     title: "Runner-Up",
     desc: "College Hackathon 2025",
+    icon: Trophy,
   },
   {
-    title: "10+ Projects",
+    title: "15+ Projects",
     desc: "Built using modern web technologies",
+    icon: Rocket,
   },
   {
     title: "AI Systems",
     desc: "Worked on RAG and Generative AI projects",
+    icon: Brain,
   },
   {
     title: "Continuous Learning",
     desc: "Exploring system design and scalable architecture",
+    icon: BookOpen,
   },
 ];
 
@@ -25,42 +31,74 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="relative py-28 px-6 max-w-7xl mx-auto"
+      className="relative py-32 px-6 overflow-hidden"
     >
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-bold text-center mb-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
-      >
-        Achievements
-      </motion.h2>
 
-      {/* Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/bg1.jpg"
+          alt="background"
+          fill
+          priority
+          className="object-cover opacity-90"
+        />
+      </div>
 
-        {achievements.map((item, i) => (
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#020617]/90 via-[#020617]/70 to-[#020617]/90"></div>
 
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 hover:shadow-[0_0_30px_rgba(99,102,241,0.25)] transition"
-          >
+      {/* Glow Effects */}
+      <div className="absolute -z-10 w-full h-full pointer-events-none">
+        <div className="absolute top-[-120px] left-[-120px] w-[400px] h-[400px] bg-purple-500/20 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full"></div>
+      </div>
 
-            <h3 className="text-2xl font-bold text-indigo-400 mb-2">
-              {item.title}
-            </h3>
+      <div className="max-w-7xl mx-auto">
 
-            <p className="text-gray-400 text-sm">
-              {item.desc}
-            </p>
+        {/* Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+        >
+          Achievements
+        </motion.h2>
 
-          </motion.div>
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-        ))}
+          {achievements.map((item, i) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="group text-center backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-10 hover:shadow-[0_0_45px_rgba(99,102,241,0.35)] hover:-translate-y-2 transition-all"
+              >
+
+                {/* Icon */}
+                <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400 group-hover:scale-110 transition">
+                  <Icon size={26}/>
+                </div>
+
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+
+              </motion.div>
+            );
+          })}
+
+        </div>
 
       </div>
     </section>

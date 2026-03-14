@@ -71,7 +71,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="text-center text-gray-500 text-sm pb-6">
-        © {new Date().getFullYear()} Aditya Sharma. Built with Next.js.
+        © {new Date().getFullYear()} Aditya Sharma. Last Updated 15th March 2026.
       </div>
 
     </footer>
