@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import AuroraBackground from "@/components/AuroraBackground";
 
 
 const geistSans = Geist({
@@ -32,7 +32,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-[#08080a] text-white antialiased`}
       >
-        <ParticlesBackground />
+        <AuroraBackground />
+       
         <CustomCursor />
         <ScrollProgress />
         <Navbar />
