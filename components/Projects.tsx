@@ -117,6 +117,13 @@ function Projects() {
       demoAvailable: false,
       note: "Live demo coming soon"
     },
+    {
+      title: "HackOrate",
+      desc: "Game-themed frontend web application built during a college hackathon where the project secured 2nd place. Focused on interactive UI, engaging visuals and smooth user experience.",
+      tech: ["React", "Next.js", "Tailwind"],
+      demo: "https://hackorate-project.vercel.app/",
+      github: "https://github.com/Aditya-Sharma219/Hackorate-Project"
+    },
 
   ], []);
 
