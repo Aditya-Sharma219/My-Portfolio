@@ -102,21 +102,6 @@ function Hero() {
                 transition={{ duration: 0.6 }}
                 className="max-w-4xl text-center backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
             >
-                {/* Profile */}
-                <div className="flex justify-center mb-8">
-                    <div className="relative w-32 h-32 rounded-full overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.5)]">
-                        <Image
-                            src="/profile1.jpg"
-                            alt="Aditya Sharma"
-                            fill
-                            priority
-                            sizes="128px"
-                            className="object-cover object-[center_0%] scale-180"
-                        />
-
-                        <div className="absolute inset-0 rounded-full border border-indigo-500/30 blur-sm"></div>
-                    </div>
-                </div>
 
                 {/* Heading */}
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
