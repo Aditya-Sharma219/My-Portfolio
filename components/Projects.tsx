@@ -10,16 +10,16 @@ const Tilt = dynamic(() => import("react-parallax-tilt"), { ssr: false });
 
 function Projects() {
   type Project = {
-  title: string
-  desc: string
-  tech: string[]
-  github: string
-  demo?: string
-  video?: string
-  note?: string
-  codeAvailable?: boolean
-  demoAvailable?: boolean
-}
+    title: string
+    desc: string
+    tech: string[]
+    github: string
+    demo?: string
+    video?: string
+    note?: string
+    codeAvailable?: boolean
+    demoAvailable?: boolean
+  }
 
 
 
@@ -69,6 +69,7 @@ function Projects() {
       tech: ["HTML", "CSS", "JavaScript"],
       demo: "#",
       github: "https://github.com/Aditya-Sharma219/Spotify_Clone",
+      video: "https://www.linkedin.com/posts/adityasharma219_built-a-spotify-clone-just-wrapped-activity-7295848561848565761-nUzW/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEnRerYBapNsopgXMvfc4vTkgwQORXbeP14",
       demoAvailable: false,
       note: "Live demo coming soon"
     },
@@ -109,7 +110,16 @@ function Projects() {
       demo: "https://vaeloraaa.vercel.app/",
       github: "#",
       codeAvailable: false
-    }
+    },
+    {
+      title: "Riding On The Verge",
+      desc: "Portfolio website built for a YouTube creator when I started my agency work. The project focuses on clean UI, creator branding and fast performance for showcasing content.",
+      tech: ["Next.js", "React", "Tailwind"],
+      demo: "https://riding-on-the-verge.vercel.app/",
+      github: "#",
+      codeAvailable: false,
+      note: "Source code not available"
+    },
 
   ], []);
 
