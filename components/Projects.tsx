@@ -54,16 +54,6 @@ function Projects() {
     },
 
     {
-      title: "HeritageAI",
-      desc: "AI-powered multi-agent system using Gemini and LLMs to verify historical monument information from internet and Wikipedia sources.",
-      tech: ["Next.js", "Multi-Agent AI", "Gemini API", "LLM", "RAG"],
-      demo: "#",
-      github: "https://github.com/Aditya-Sharma219/HeritageAI",
-      demoAvailable: false,
-      note: "Live demo currently unavailable"
-    },
-
-    {
       title: "Spotify Clone",
       desc: "Spotify-like music player built with HTML, CSS and JavaScript supporting play, pause, next, previous, volume and seek bar.",
       tech: ["HTML", "CSS", "JavaScript"],
@@ -73,27 +63,6 @@ function Projects() {
       demoAvailable: false,
       note: "Live demo coming soon"
     },
-
-    {
-      title: "URL Shortener",
-      desc: "Dynamic routing system allowing users to create custom handles and store multiple social links like Instagram, YouTube, Twitter etc.",
-      tech: ["Next.js", "MongoDB", "API"],
-      demo: "#",
-      github: "https://github.com/Aditya-Sharma219/Url-shortner",
-      demoAvailable: false,
-      note: "Live demo coming soon"
-    },
-
-    {
-      title: "RAG AI Document Query",
-      desc: "Document search system using JavaScript, Gemini API and Pinecone vector database for Retrieval Augmented Generation queries.",
-      tech: ["JavaScript", "Gemini API", "Pinecone", "RAG"],
-      demo: "#",
-      github: "#",
-      demoAvailable: false,
-      note: "Live demo and code coming soon"
-    },
-
     {
       title: "AWS IoT Hydraulic Dashboard",
       desc: "Cloud dashboard using Next.js and AWS with DynamoDB, CloudWatch alarms and Lambda APIs processing simulated machine data.",
@@ -119,6 +88,34 @@ function Projects() {
       github: "#",
       codeAvailable: false,
       note: "Source code not available"
+    },
+    {
+      title: "HeritageAI",
+      desc: "AI-powered multi-agent system using Gemini and LLMs to verify historical monument information from internet and Wikipedia sources.",
+      tech: ["Next.js", "Multi-Agent AI", "Gemini API", "LLM", "RAG"],
+      demo: "#",
+      github: "https://github.com/Aditya-Sharma219/HeritageAI",
+      demoAvailable: false,
+      note: "Live demo currently unavailable"
+    },
+    {
+      title: "RAG AI Document Query",
+      desc: "Document search system using JavaScript, Gemini API and Pinecone vector database for Retrieval Augmented Generation queries.",
+      tech: ["JavaScript", "Gemini API", "Pinecone", "RAG"],
+      demo: "#",
+      github: "#",
+      demoAvailable: false,
+      note: "Live demo and code coming soon"
+    },
+
+    {
+      title: "URL Shortener",
+      desc: "Dynamic routing system allowing users to create custom handles and store multiple social links like Instagram, YouTube, Twitter etc.",
+      tech: ["Next.js", "MongoDB", "API"],
+      demo: "#",
+      github: "https://github.com/Aditya-Sharma219/Url-shortner",
+      demoAvailable: false,
+      note: "Live demo coming soon"
     },
 
   ], []);
