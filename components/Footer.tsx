@@ -81,7 +81,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="text-center text-gray-500 text-sm pb-6 border-t border-white/5 pt-6">
-        © {year} Aditya Sharma • Built with Next.js & Tailwind
+        © {year} Aditya Sharma • Built with Next.js & Tailwind • Last Updated: 15th March 2026
       </div>
 
     </footer>
