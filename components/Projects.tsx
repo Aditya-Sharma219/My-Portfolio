@@ -126,13 +126,14 @@ function Projects() {
       title: "CI/CD MERN Healthcare System",
       desc: "Doctor-patient role based MERN application with Jenkins CI/CD pipeline that automatically builds Docker containers on GitHub push.",
       tech: ["MERN", "Jenkins", "Docker", "CI/CD"],
-      github: "https://github.com/Aditya-Sharma219/Capstone1",
-      note: "Demo video coming soon"
+      github: "#",
+      codeAvailable: false,
+      note: "Source code not available"
     },
 
     {
-      title: "Frontend UI Clone Collection",
-      desc: "Collection of UI clone projects including Netflix, Spotify, Paytm and Twitter along with React mini apps.",
+      title: "Frontend UI Clone & React Mini Projects",
+      desc: "Collection of UI clone and React mini projects including Password Manager, Todo App, Tic Tac Toe, SIH FAQ Chatbot, Employee Management CRUD App and several frontend UI clones like Netflix, Spotify, Paytm and Twitter.",
       tech: ["React", "JavaScript", "HTML", "CSS"],
       github: "https://github.com/Aditya-Sharma219/"
     }
@@ -287,7 +288,7 @@ bg-indigo-500/20 text-indigo-400 mb-4">
               {/* Note */}
               {project.note && (
                 <p className="text-xs text-yellow-300 mb-4">
-                  {project.note}
+                  {project.note} | Private Repository
                 </p>
               )}
 
@@ -312,19 +313,23 @@ hover:bg-indigo-500/30 transition"
               {/* Buttons */}
               <div className="flex gap-3 flex-wrap">
 
-                {/* Code */}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg 
+                {project.codeAvailable === false ? (
+                  <span className="text-xs px-3 py-2 rounded-lg bg-red-500/20 text-red-300 border border-red-500/30">
+                    Code Private
+                  </span>
+                ) : (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg 
 border border-white/20 hover:bg-white/10 transition"
-                >
-                  <Github size={16} />
-                  Code
-                </a>
+                  >
+                    <Github size={16} />
+                    Code
+                  </a>
+                )}
 
-                {/* Optional Demo */}
                 {project.demo && (
                   <a
                     href={project.demo}
@@ -338,7 +343,6 @@ bg-gradient-to-r from-indigo-500 to-cyan-400 text-white hover:scale-105 transiti
                   </a>
                 )}
 
-                {/* Optional Video */}
                 {project.video && (
                   <a
                     href={project.video}
