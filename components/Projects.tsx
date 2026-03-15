@@ -38,7 +38,7 @@ function Projects() {
     {
       title: "AI Website Builder",
       desc: "Generate full websites using natural language prompts. The system generates HTML, CSS and JavaScript code and instantly renders a live preview.",
-      tech: ["AI", "HTML", "CSS", "JavaScript"],
+      tech: ["Next.js", "Gemini API", "LLM", "Tailwind"],
       demo: "https://website-builderai.vercel.app/",
       github: "https://github.com/Aditya-Sharma219/websiteMaker"
     },
